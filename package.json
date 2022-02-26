@@ -23,6 +23,7 @@
   "dependencies": {
     "express": "^4.17.3",
     "live-server": "^1.2.1",
-    "mongodb": "^4.4.0"
+    "mongodb": "^4.4.0",
+    "mongoose": "^6.2.3"
   }
 }
