@@ -3,7 +3,7 @@ const require = createRequire(import.meta.url);
 const {MongoClient} = require('mongodb');
 async function main() {
 	// we'll add code here soon
-    const uri = "mongodb+srv://demo:demo@cluster0.ldzka.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    const uri = "mongodb+srv://admin:helloWorld@cluster0.5byy8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
     const client = new MongoClient(uri);
 
     try{
