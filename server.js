@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import { config } from 'dotenv';
 
 import Students from './schemas/studentSchema.js';
+import Teachers from './schemas/teacherSchema.js';
 
 const app = express();
 app.use(bodyParser.json())
@@ -21,6 +22,18 @@ app.post('/api/students', (req, res) => {
   
   student.save()
     .then(() => console.log('Student saved'))
+    .then(() => res.send({
+      status: 'success',
+    }))
+    .catch(err => console.log(err))
+
+});
+
+app.post('/api/teachers', (req, res) => {
+  const student = new Teachers(req.body);
+  
+  student.save()
+    .then(() => console.log('Teacher saved'))
     .then(() => res.send({
       status: 'success',
     }))

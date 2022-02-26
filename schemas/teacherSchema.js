@@ -6,7 +6,7 @@ const teacherSchema = new Schema({
         type: String,
         required: true
     },
-    empid: {
+    empId: {
         type: String,
         required: true,
         unique: true
