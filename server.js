@@ -52,10 +52,10 @@ app.post('/api/login-student', async (req, res) => {
     const isPasswordValid = await bcrypt.compare(req.body.password, user.password);
     if (isPasswordValid) {
       const token = jwt.sign({
-        name: user.name,
+        name: user.fullName,
         email: user.email,
       }, process.env.SECRET_KEY);
-      return res.json({ status: 'ok', user: token })
+      return res.json({ status: 'ok', token: token });
     } else {
       return res.status(400).json({ message: 'Invalid Password' });
     }
