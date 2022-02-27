@@ -21,11 +21,10 @@ const PORT = process.env.PORT || 6969;
 const dbURI = process.env.MONGODB_URI;
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB Connected'))
+  .then(() => console.log('🚁 -> MongoDB Connected'))
   .catch(err => console.log(err));
 
 app.post('/api/students-register', async (req, res) => {
-  console.log("request body : ", req.body);
   const student = new Students(req.body);
 
   try {
@@ -34,7 +33,6 @@ app.post('/api/students-register', async (req, res) => {
     student.save()
       .then(() => res.send({ status: 'success' }))
       .then(() => res.json({ message: 'Student Registered Successfully' }))
-      .then(() => console.log('Student Registered Successfully'))
       .catch(err => res.status(400).json({ message: 'Error : ' + err }));
   } catch (err) {
     console.log(err);
@@ -79,7 +77,6 @@ app.post('/api/post', (req, res) => {
   const post = new Posts(req.body);
 
   post.save()
-    .then(() => console.log('Post saved'))
     .then(() => res.send({
       status: 'success',
     }))
@@ -94,5 +91,5 @@ app.get('/api/posts', (req, res) => {
 });
 
 app.listen(PORT, () =>
-  console.log('🚂 Server is running on port', PORT)
+  console.log('🚂 -> Server is running on port', PORT)
 );

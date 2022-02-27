@@ -2,6 +2,9 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const postSchema = new Schema({
+    id: {
+        type: Schema.Types.ObjectId,
+    },
     title: {
         type: String,
         required: true
@@ -12,7 +15,6 @@ const postSchema = new Schema({
     },
     author: {
         type: String,
-        required: true,
     },
     likeCounter: {
         type: Number,
@@ -20,14 +22,14 @@ const postSchema = new Schema({
     comments: [
         {
             commenter: {
-                type: String        
+                type: String
             },
             comment: {
                 type: String
-            }            
+            }
         }
     ],
-    
+
 }, {
     timestamps: true
 });
