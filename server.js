@@ -64,9 +64,9 @@ app.post('/api/login-student', async (req, res) => {
 });
 
 app.post('/api/teachers-register', (req, res) => {
-  const student = new Teachers(req.body);
+  const teacher = new Teachers(req.body);
 
-  student.save()
+  teacher.save()
     .then(() => console.log('Teacher saved'))
     .then(() => res.send({
       status: 'success',
@@ -75,7 +75,7 @@ app.post('/api/teachers-register', (req, res) => {
 
 });
 
-app.post('/api/posts', (req, res) => {
+app.post('/api/post', (req, res) => {
   const post = new Posts(req.body);
 
   post.save()
@@ -85,6 +85,12 @@ app.post('/api/posts', (req, res) => {
     }))
     .catch(err => console.log(err))
 
+});
+
+app.get('/api/posts', (req, res) => {
+  Posts.find()
+    .then(posts => res.json(posts))
+    .catch(err => console.log(err))
 });
 
 app.listen(PORT, () =>
